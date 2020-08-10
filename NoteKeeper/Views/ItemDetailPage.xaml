@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NoteKeeper.Views.ItemDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Title}"
+    mc:Ignorable="d">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Clicked="Cancel_Clicked" Text="Cancel" />
+        <ToolbarItem Clicked="Save_Clicked" Text="Save" />
+    </ContentPage.ToolbarItems>
+    <StackLayout Padding="15" Spacing="20">
+
+        <Picker
+            x:Name="NoteCourse"
+            Title="Note Course"
+            FontSize="Medium"
+            ItemsSource="{Binding CourseList}"
+            SelectedItem="{Binding Note.Course}" />
+
+        <Entry
+            x:Name="NoteHeading"
+            FontSize="Medium"
+            Placeholder="Note text"
+            Text="{Binding NoteHeading}" />
+
+        <Editor
+            x:Name="NoteText"
+            AutoSize="TextChanges"
+            FontSize="Medium"
+            Placeholder="Note text"
+            Text="{Binding Note.Text}" />
+    </StackLayout>
+</ContentPage>
