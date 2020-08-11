@@ -21,6 +21,11 @@ namespace NoteKeeper.ViewModels
             Notes = new ObservableCollection<Note>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
+            MessagingCenter.Subscribe<ItemDetailPage, Note>(this, "SaveNote",
+                async (sender, note) => {
+                    Notes.Add(note);
+                    await PluralsightDataStore.AddNoteAsync(note);
+                });
 
         }
 

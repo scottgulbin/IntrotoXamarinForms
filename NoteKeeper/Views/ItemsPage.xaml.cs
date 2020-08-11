@@ -31,7 +31,7 @@ namespace NoteKeeper.Views
         {
             var layout = (BindableObject)sender;
             var note = (Note)layout.BindingContext;
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(note)));
+            await Navigation.PushModalAsync(new NavigationPage(new ItemDetailPage(new ItemDetailViewModel(note))));
         }
 
         async void AddItem_Clicked(object sender, EventArgs e)
